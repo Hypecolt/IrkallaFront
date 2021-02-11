@@ -1,0 +1,8 @@
+<div class="feed">
+    <app-user-card *ngFor="let user of usersList" [user]="user"></app-user-card>
+    <button type="button" class="btn btn-dark" (click)="loadMore()" *ngIf="!loading">Load More</button>
+</div>
+
+<div class = "loader" *ngIf="loading">
+    <img src="assets/scalableVectorGraphics/loader.svg">
+</div>

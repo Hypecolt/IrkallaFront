@@ -82,7 +82,8 @@ export class RegisterComponent implements OnInit {
       (response:any) => {
         console.log(response);
         if(response.status) this.success = true;
-        else this.errorMessage = response.message},
+        else this.errorMessage = response.message
+      },
       (error) => {
         console.log(error);
         this.errorMessage = error.error.message;

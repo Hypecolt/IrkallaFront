@@ -10,10 +10,6 @@ export class AppComponent implements OnInit{
   constructor() { }
 
   ngOnInit(): void {
-    //window.localStorage.setItem("token","45wtrfgvw45");
-
-    //const token = window.localStorage.getItem("token");
-    //window.localStorage.removeItem("token");
   }
 
 }

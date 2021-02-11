@@ -5,14 +5,17 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { LoginGuardService } from './services/login-guard.service';
 import { UserPostDetailsComponent } from './user-post-details/user-post-details.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 const routes: Routes = [
   {
-    path:"", redirectTo:"register", pathMatch:"full"
+    path:"", redirectTo:"", pathMatch:"full"
   },
   {
     path:"register",
+    canActivate:[LoginGuardService],
     component:RegisterComponent,
   },
   {
@@ -21,12 +24,18 @@ const routes: Routes = [
     component:FeedComponent,
   },
   {
+    path:"allUsers",
+    canActivate:[AuthGuardService],
+    component:UsersListComponent,
+  },
+  {
     path:"upd/:id",
     canActivate:[AuthGuardService],
     component:UserPostDetailsComponent,
   },
   {
     path:"login",
+    canActivate:[LoginGuardService],
     component:LoginComponent,
   },
   {

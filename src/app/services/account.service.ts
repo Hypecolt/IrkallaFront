@@ -22,4 +22,16 @@ export class AccountService {
     return this.http.post(this.baseUrl+this.resourceUrl+"/login", body);
   }
 
+  getLoginUrl(){
+    return this.baseUrl+this.resourceUrl+"/login";
+  }
+
+  getRegisterUrl(){
+    return this.baseUrl+this.resourceUrl+"/register";
+  }
+
+  getFeedUrl(){
+    return this.baseUrl+this.resourceUrl+"/feed";
+  }
+
 }

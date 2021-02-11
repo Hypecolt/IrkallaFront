@@ -1,4 +1,9 @@
-<app-user-post 
-    *ngFor="let userPost of userPosts" 
-    [userPost]="userPost">
-</app-user-post>
+<div class="feed">
+    <app-user-post *ngFor="let userPost of userPosts" [userPost]="userPost">
+    </app-user-post>
+    <button type="button" class="btn btn-dark" (click)="showMore()" *ngIf="!loading">Load More</button>
+</div>
+
+<div class = "loader" *ngIf="loading">
+    <img src="assets/scalableVectorGraphics/loader.svg">
+</div>

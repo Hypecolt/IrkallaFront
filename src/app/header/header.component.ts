@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,20 +9,21 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  token:string;
+  token: string;
+  view: boolean;
+  firstName: string;
 
-  constructor(private router:Router) { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
     this.token = window.localStorage.getItem("token");
+    this.firstName = window.localStorage.getItem("firstName");
   }
 
-  logOut(){
+  logOut() {
     window.localStorage.removeItem("token");
+    window.localStorage.removeItem("firstName");
+    this.ngOnInit();
   }
-
-  //fancy(){
-  //  window.localStorage.getItem("token") ? this.router.navigate(["feed"]) : this.router.navigate(["register"]);
-  //}
-
 }

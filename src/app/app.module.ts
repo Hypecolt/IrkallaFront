@@ -11,7 +11,10 @@ import { FeedComponent } from './feed/feed.component';
 import { UserPostComponent } from './user-post/user-post.component';
 import { UserPostDetailsComponent } from './user-post-details/user-post-details.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { UserCardComponent } from './user-card/user-card.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     FeedComponent,
     UserPostComponent,
     UserPostDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    UserCardComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,14 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HeaderComponent,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

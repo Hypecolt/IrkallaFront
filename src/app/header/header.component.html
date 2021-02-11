@@ -19,10 +19,15 @@
             <a class="nav-link" [routerLink]="'feed'">Feed</a>
           </li>
           <li class="nav-item" *ngIf="token">
+            <a class="nav-link" [routerLink]="'allUsers'">Discover People</a>
+          </li>
+          <li class="nav-item" *ngIf="token && firstName">
+            <a class="nav-link" [routerLink]="'myProfile'">Hello, {{firstName}}</a>
+          </li>
+          <li class="nav-item" *ngIf="token">
             <a class="nav-link" [routerLink]="'login'" (click)="logOut()">Logout</a>
           </li>
         </ul>
       </div>
-
     </div>
   </nav>
