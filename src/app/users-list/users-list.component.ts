@@ -3,30 +3,18 @@ import { SortType } from '../constants/SortType';
 import { DiscoverUsersService } from '../services/discover-users.service';
 
 export class User{
-  id:number;
   firstName:string;
   lastName:string;
-  email:string;
-  passwordHash:string;
-  gender:string;
-  role:String
+  profilePicture:string;
 
   constructor(
-    id:number,
     firstName:string, 
     lastName:string, 
-    email:string,
-    passwordHash:string,
-    gender:string,
-    role:string)
+    profilePicture:string)
     {
-      this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.email = email;
-    this.passwordHash = passwordHash;
-    this.gender = gender;
-    this.role = role;
+    this.profilePicture = profilePicture;
     }
 
 }
@@ -41,13 +29,9 @@ export class UsersListComponent implements OnInit {
   filters:UserFilters = new UserFilters(0, 2, SortType.FirstNameAscendent);
   loading = true;
 
-  usersList:User[];
-  /* users:User[] = [
-    new User("gicu", "chirila", "https://i.imgur.com/znXWsy1.jpg"),
-    new User("ionel", "cornea", "https://i.imgur.com/znXWsy1.jpg"),
-    new User("paul", "cindea", "https://i.imgur.com/znXWsy1.jpg"),
-    new User("gabriel", "antonaru", "https://i.imgur.com/znXWsy1.jpg"),
-  ]; */
+  usersList:User[] = [];
+  
+  //https://i.imgur.com/znXWsy1.jpg
 
   constructor(
     private discoverUsersService:DiscoverUsersService,
@@ -61,6 +45,7 @@ export class UsersListComponent implements OnInit {
     this.loading=true;
     this.discoverUsersService.getAllUsers(this.filters).subscribe(
       (usersList:User[]) => {
+        console.log(usersList);
         this.usersList = this.usersList.concat(usersList);
         this.loading = false;
       },

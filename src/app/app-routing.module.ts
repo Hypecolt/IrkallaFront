@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FeedComponent } from './feed/feed.component';
 import { LoginComponent } from './login/login.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -22,6 +24,16 @@ const routes: Routes = [
     path:"feed",
     canActivate:[AuthGuardService],
     component:FeedComponent,
+  },
+  {
+    path:"myProfile/edit",
+    canActivate:[AuthGuardService],
+    component:EditProfileComponent,
+  },
+  {
+    path:"myProfile",
+    canActivate:[AuthGuardService],
+    component:MyProfileComponent,
   },
   {
     path:"allUsers",

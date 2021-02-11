@@ -8,7 +8,7 @@ import { UserPostsFilters } from '../feed/feed.component';
 })
 export class UserPostsService {
 
-  private readonly resourceUrl:string = "feed";
+  private readonly resourceUrl:string = "Post/ShowPosts";
   private readonly baseUrl:string = environment.server;
 
   constructor(private http:HttpClient) { 
@@ -17,7 +17,8 @@ export class UserPostsService {
 
   getAllUserPosts(filters:UserPostsFilters){
 
-    return this.http.get(`${this.baseUrl}${this.resourceUrl}`, {params:{pageSize:filters.size.toString(), pageNumber:filters.page.toString(), sortType:filters.sortType.toString()}});
+    console.log(this.baseUrl+this.resourceUrl);
+    return this.http.get(`${this.baseUrl}${this.resourceUrl}`, {params:{pageSize:filters.size.toString(), pageNumber:filters.page.toString()}});
 
   }
 

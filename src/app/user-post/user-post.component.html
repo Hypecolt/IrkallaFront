@@ -1,6 +1,9 @@
 <div class="card" style="width: 18rem;" (click)="postDetails()">
-    <div class="card-body">
-      <h5 class="card-title">{{userPost.userName}}</h5>
-      <p class="card-text">{{userPost.content}}</p>
-    </div>
+  <div class="card-body body">
+    <h5 class="card-title">{{userPost.ownerFirstName+" "+userPost.ownerLastName}}</h5>
+    <hr>
+    <p class="card-text">{{userPost.postText}}</p>
+    <hr>
+    <p class="likes">{{userPost.postLikes}}</p>
   </div>
+</div>

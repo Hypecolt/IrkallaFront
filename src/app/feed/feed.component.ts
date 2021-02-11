@@ -3,14 +3,20 @@ import { SortType } from '../constants/SortType';
 import { UserPostsService } from '../services/user-posts.service';
 
 export class UserPost{
-  id:number;
-  userName:string;
-  content:string;
+  ownerFirstName:string;
+  ownerLastName:string;
+  postId:number;
+  postImage:string;
+  postText:string;
+  postLikes:number;
 
-  constructor(id:number, userName:string, content:string){
-    this.id = id;
-    this.userName = userName;
-    this.content = content;
+  constructor(ownerFirstName:string, ownerLastName:string, postId:number, postImage:string, postText:string, postLikes:number){
+    this.postId = postId;
+    this.ownerFirstName = ownerFirstName;
+    this.ownerLastName = ownerLastName;
+    this.postImage = postImage;
+    this.postText = postText;
+    this.postLikes = postLikes;
   }
 
 }
@@ -26,13 +32,6 @@ export class FeedComponent implements OnInit {
   filters:UserPostsFilters = new UserPostsFilters(0, 10, SortType.FirstNameAscendent);
   loading = true;
 
-  /* userPosts:UserPost[] = [
-    new UserPost(1, "gicu", "bat si fut ca masina de cusut"),
-    new UserPost(2, "ionel", "am postu cel mai mare pe marsu il calc in picioare"),
-    new UserPost(3, "paul", "CFR vine de la ce te feresti de pumnu meu"),
-    new UserPost(4, "gabriel", "2 meleuri si 1 isuzu, bombardier cu bronz spalat")
-  ]; */
-
   constructor(
     private userPostsService:UserPostsService,
     ) { }
@@ -45,6 +44,7 @@ export class FeedComponent implements OnInit {
     this.loading=true;
     this.userPostsService.getAllUserPosts(this.filters).subscribe(
       (userPosts:UserPost[]) => {
+        console.log(userPosts);
         this.userPosts = this.userPosts.concat(userPosts);
         this.loading = false;
       },

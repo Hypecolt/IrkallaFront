@@ -1,0 +1,44 @@
+<div class="row py-5 px-4 latime">
+    <div class="col-md-5 mx-auto">
+        <!-- Profile widget -->
+        <div class="panou">
+            <form [formGroup]="updateForm">
+                <div class="mb-3">
+                    <h5 class="title">Edit profile</h5>
+                </div>
+                <hr class="latime">
+
+                <div class="">
+                    <h5 class="title">Update Profile Picture</h5>
+                    <input type="text" formControlName="profilePicture" class="form-control update-input">
+                </div>
+
+                <div class="">
+                    <h5 class="title">Update Password</h5>
+                    <input type="password" formControlName="password" class="form-control update-input">
+                </div>
+
+                <div class="">
+                    <h5 class="title">Update Email</h5>
+                    <input type="email" formControlName="email" class="form-control update-input">
+                </div>
+
+                <div class="">
+                    <h5 class="title">Update First Name</h5>
+                    <input type="text" formControlName="firstName" class="form-control update-input">
+                </div>
+
+                <div class="">
+                    <h5 class="title">Update Last Name</h5>
+                    <input type="text" formControlName="lastName" class="form-control update-input">
+                </div>
+
+                <div class="">
+                    <h5 class="title">Update Gender</h5>
+                    <input type="text" formControlName="gender" class="form-control update-input">
+                </div>
+            </form>
+            <button class="btn btn-primary" (click)="userUpdate()">Aplica Modificari</button>
+        </div>
+    </div>
+</div>

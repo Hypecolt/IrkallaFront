@@ -1,18 +1,22 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private firstNameSubject:Subject<string> = new Subject<string>();
-  firstNameStream:Observable<string> = this.firstNameSubject.asObservable();
+  private readonly resourceUrl:string = "user";
+  private readonly baseUrl:string = environment.server;
 
-  constructor() { }
+  constructor(private http:HttpClient) { 
 
-  addFirstName(firstName:string){
-    this.firstNameSubject.next(firstName);
+  }
+
+  update(body){
+    console.log(this.baseUrl+this.resourceUrl+"/update");
+    return this.http.post(this.baseUrl+this.resourceUrl+"/update", body);
   }
 
 }

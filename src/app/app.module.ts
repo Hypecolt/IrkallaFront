@@ -15,6 +15,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     UserPostDetailsComponent,
     LoginComponent,
     UserCardComponent,
-    UsersListComponent
+    UsersListComponent,
+    MyProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

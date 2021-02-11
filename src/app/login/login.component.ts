@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
         this.email.value, 
         this.password.value
       );
-
+      
     this.accountService.login(loginData).subscribe(
       (response:any) => {
         const token = response.token;

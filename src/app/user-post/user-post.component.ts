@@ -17,7 +17,7 @@ export class UserPostComponent implements OnInit {
   }
 
   postDetails(){
-    this.router.navigate(["upd/"+this.userPost.id]);
+    this.router.navigate(["upd/"+this.userPost.postId]);
   }
 
 }
