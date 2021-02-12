@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { AccountService } from '../services/account.service';
-import { UserService } from '../services/user.service';
 
 export class LoginData{
   email: string;

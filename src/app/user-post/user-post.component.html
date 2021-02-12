@@ -2,7 +2,8 @@
   <div class="card-body body">
     <h5 class="card-title">{{userPost.ownerFirstName+" "+userPost.ownerLastName}}</h5>
     <hr>
-    <p class="card-text">{{userPost.postText}}</p>
+    <p class="card-text" *ngIf="userPost.postText">{{userPost.postText}}</p>
+    <img src="{{userPost.postImage}}" class="post-image" *ngIf="userPost.postImage">
     <hr>
     <p class="likes">{{userPost.postLikes}}</p>
   </div>

@@ -29,7 +29,7 @@ export class UserPost{
 export class FeedComponent implements OnInit {
 
   userPosts:UserPost[] = [];
-  filters:UserPostsFilters = new UserPostsFilters(0, 10, SortType.FirstNameAscendent);
+  filters:UserPostsFilters = new UserPostsFilters(0, 4, SortType.FirstNameAscendent);
   loading = true;
 
   constructor(

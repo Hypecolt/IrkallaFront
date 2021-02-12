@@ -15,8 +15,11 @@ export class UserService {
   }
 
   update(body){
-    console.log(this.baseUrl+this.resourceUrl+"/update");
     return this.http.post(this.baseUrl+this.resourceUrl+"/update", body);
+  }
+
+  getDetails(){
+    return this.http.get(this.baseUrl+this.resourceUrl+"/GetDetails");
   }
 
 }

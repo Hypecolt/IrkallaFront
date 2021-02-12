@@ -17,6 +17,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { UserProfileCardComponent } from './user-profile-card/user-profile-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     UserCardComponent,
     UsersListComponent,
     MyProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    UserProfileCardComponent
   ],
   imports: [
     BrowserModule,
